@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(37, 206, 37);
+}
+
+header {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+main {
+    width: 350px;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 5px 4px 2px black;
+    overflow: hidden;
+    padding-top : 20px;
+    padding-left: 20px;
+    padding-bottom: 40px    ;
+}
+
+main img {
+    width: 250px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    object-fit: cover;
+    
+}
+
+#buttonV {
+    margin-bottom: 15px;
+}
+
+#res {
+    text-align: center;
+}

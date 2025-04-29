@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro e Login</title>
+  <style>
+    .tela { display: none; }
+    .ativa { display: block; }
+  </style>
+</head>
+<body>
+
+  <h2>Sistema de Cadastro/Login</h2>
+  <button onclick="mostrarTela('cadastro')">Cadastrar</button>
+  <button onclick="mostrarTela('login')">Login</button>
+
+  <!-- Tela de Cadastro -->
+  <div id="cadastro" class="tela">
+    <h3>Cadastro</h3>
+    <input type="text" id="nomeCadastro" placeholder="Nome"><br>
+    <input type="password" id="senhaCadastro" placeholder="Senha"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+  </div>
+
+  <!-- Tela de Login -->
+  <div id="login" class="tela">
+    <h3>Login</h3>
+    <input type="text" id="nomeLogin" placeholder="Nome"><br>
+    <input type="password" id="senhaLogin" placeholder="Senha"><br>
+    <button onclick="logar()">Entrar</button>
+  </div>
+
+  <p id="mensagem"></p>
+
+  <script>
+    const usuarios = [];
+
+    function mostrarTela(tela) {
+      document.getElementById('cadastro').classList.remove('ativa');
+      document.getElementById('login').classList.remove('ativa');
+      document.getElementById(tela).classList.add('ativa');
+      document.getElementById('mensagem').innerText = '';
+    }
+
+    function cadastrar() {
+      const nome = document.getElementById('nomeCadastro').value;
+      const senha = document.getElementById('senhaCadastro').value;
+
+      if (nome && senha) {
+        usuarios.push({ nome, senha });
+        document.getElementById('mensagem').innerText = 'Cadastro realizado com sucesso!';
+      } else {
+        document.getElementById('mensagem').innerText = 'Preencha todos os campos!';
+      }
+    }
+
+    function logar() {
+      const nome = document.getElementById('nomeLogin').value;
+      const senha = document.getElementById('senhaLogin').value;
+
+      const usuarioValido = usuarios.find(user => user.nome === nome && user.senha === senha);
+
+      if (usuarioValido) {
+        document.getElementById('mensagem').innerText = 'Login bem-sucedido!';
+      } else {
+        document.getElementById('mensagem').innerText = 'Usuário ou senha incorretos.';
+      }
+    }
+  </script>
+
+</body>
+</html>
